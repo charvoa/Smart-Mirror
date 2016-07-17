@@ -54,9 +54,6 @@ class MirrorController {
   //Only call this method from your module if you want to update the dom !
   updateDom(module){
     var newContent = module.generateDisplay();
-    // if (module.name == "compliments"){
-    //   moment();
-    // }
     this.updateModuleContent(module,newContent);
   }
 

@@ -74,9 +74,6 @@ var MirrorController = function () {
     key: 'updateDom',
     value: function updateDom(module) {
       var newContent = module.generateDisplay();
-      // if (module.name == "compliments"){
-      //   moment();
-      // }
       this.updateModuleContent(module, newContent);
     }
   }, {

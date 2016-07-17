@@ -25,7 +25,7 @@ var compliments = function (_Module) {
 
     _this.name = "compliments";
     _this.options = {
-      updateInterval: 3000,
+      updateInterval: 30000,
       morning: ['Bonjour !', 'Bonne journée !', 'J\'espère que tu as bien dormi !'],
       afternoon: ['Bon après-midi !', 'Bientôt la fin de journée !', 'Comment se déroule votre journée ?']
     };
