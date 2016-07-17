@@ -15,6 +15,8 @@ var Module = require(__dirname + '/modules/Module');
 var MirrorController = function () {
   function MirrorController() {
     _classCallCheck(this, MirrorController);
+
+    this.loader = new Loader();
   }
 
   _createClass(MirrorController, [{
@@ -39,15 +41,6 @@ var MirrorController = function () {
       }
     }
   }, {
-    key: 'insertFiles',
-    value: function insertFiles(module) {
-      var self = this;
-      self.scripts = [];
-      var loader = new Loader();
-      loader.loadScripts();
-      //console.log(module.getScripts());
-    }
-  }, {
     key: 'displayObjects',
     value: function displayObjects(modulesJSON) {
       var modules = [];
@@ -58,26 +51,32 @@ var MirrorController = function () {
       });
       var i = 0;
       modules.forEach(function (module) {
-        self.insertFiles(module);
-        var wrapper = self.selectDiv(module.options.position);
-        var dom = document.createElement("div");
-        dom.id = module.name + i;
-        module.identifier = dom.id;
-        dom.className = module.name;
-        wrapper.appendChild(dom);
-        var moduleContent = document.createElement("div");
-        moduleContent.className = "module-content";
-        dom.appendChild(moduleContent);
-        self.updateDom(module);
-        i++;
-        module.start(self);
+        self.loader.loadScripts(module, function () {
+          var wrapper = self.selectDiv(module.options.position);
+          var dom = document.createElement("div");
+          dom.id = module.name + i;
+          module.identifier = dom.id;
+          dom.className = module.name;
+          wrapper.appendChild(dom);
+          var moduleContent = document.createElement("div");
+          moduleContent.className = "module-content";
+          dom.appendChild(moduleContent);
+          self.updateDom(module);
+          i++;
+          module.start(self);
+        });
       });
     }
+
+    //Only call this method from your module if you want to update the dom !
+
   }, {
     key: 'updateDom',
     value: function updateDom(module) {
-      console.log("updateDom");
       var newContent = module.generateDisplay();
+      // if (module.name == "compliments"){
+      //   moment();
+      // }
       this.updateModuleContent(module, newContent);
     }
   }, {

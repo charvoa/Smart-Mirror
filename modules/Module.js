@@ -7,6 +7,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 // Made by Antoine Garcia in 2016
 
 var Module = function () {
+  //You have to override this ! Change this.name to the name of your module.
+
   function Module() {
     _classCallCheck(this, Module);
 

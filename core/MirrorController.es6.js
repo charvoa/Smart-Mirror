@@ -3,6 +3,9 @@ const {ipcRenderer} = require('electron');
 var Module = require(__dirname + '/modules/Module');
 
 class MirrorController {
+  constructor(){
+    this.loader = new Loader()
+  }
   start(){
     var self = this
     ipcRenderer.send('Receiver-Load', 'ping');
@@ -22,14 +25,6 @@ class MirrorController {
     }
   }
 
-  insertFiles(module){
-    var self = this;
-    self.scripts = [];
-    var loader = new Loader();
-    loader.loadScripts();
-    //console.log(module.getScripts());
-  }
-
   displayObjects(modulesJSON){
     var modules = []
     var self = this;
@@ -39,25 +34,29 @@ class MirrorController {
     });
     var i = 0;
     modules.forEach(function (module) {
-      self.insertFiles(module);
-      var wrapper = self.selectDiv(module.options.position);
-      var dom = document.createElement("div");
-			dom.id = module.name + i;
-      module.identifier = dom.id
-			dom.className = module.name;
-      wrapper.appendChild(dom);
-      var moduleContent = document.createElement("div");
-			moduleContent.className = "module-content";
-			dom.appendChild(moduleContent);
-      self.updateDom(module);
-      i++;
-      module.start(self);
+      self.loader.loadScripts(module,function(){
+        var wrapper = self.selectDiv(module.options.position);
+        var dom = document.createElement("div");
+  			dom.id = module.name + i;
+        module.identifier = dom.id
+  			dom.className = module.name;
+        wrapper.appendChild(dom);
+        var moduleContent = document.createElement("div");
+  			moduleContent.className = "module-content";
+  			dom.appendChild(moduleContent);
+        self.updateDom(module);
+        i++;
+        module.start(self);
+      });
     });
   }
 
+  //Only call this method from your module if you want to update the dom !
   updateDom(module){
-    console.log("updateDom");
     var newContent = module.generateDisplay();
+    // if (module.name == "compliments"){
+    //   moment();
+    // }
     this.updateModuleContent(module,newContent);
   }
 

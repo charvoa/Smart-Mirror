@@ -1,6 +1,7 @@
 // Made by Antoine Garcia in 2016
 
 class Module {
+  //You have to override this ! Change this.name to the name of your module.
   constructor(){
     this.options = {}
     this.name = "Module";

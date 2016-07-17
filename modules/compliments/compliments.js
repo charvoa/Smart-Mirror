@@ -30,6 +30,7 @@ var compliments = function (_Module) {
   _createClass(compliments, [{
     key: "generateDisplay",
     value: function generateDisplay() {
+      console.log(moment().hour());
       var wrapper = document.createElement("div");
       wrapper.innerHTML = this.options.text;
       return wrapper;

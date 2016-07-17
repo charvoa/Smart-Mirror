@@ -7,6 +7,7 @@ class compliments extends Module{
     this.name = "compliments";
   }
   generateDisplay(){
+    console.log(moment().hour());
     var wrapper = document.createElement("div");
 		wrapper.innerHTML = this.options.text;
 		return wrapper;
