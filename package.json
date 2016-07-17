@@ -1,0 +1,19 @@
+{
+  "name": "mirror",
+  "version": "1.0.0",
+  "description": "My Magic Mirror",
+  "main": "app/index.js",
+  "scripts": {
+   "start": "electron ."
+ },
+  "author": "Antoine Garcia",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "electron-prebuilt": "^1.2.7",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1"
+  }
+}

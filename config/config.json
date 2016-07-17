@@ -1,0 +1,17 @@
+{
+	"config": {
+		"modules": [{
+			"name": "simpleText",
+			"options": {
+				"text": "Salut Antoine !",
+				"position": "middle_center"
+			}
+		}, {
+			"name": "simpleText",
+			"options": {
+				"text": "Salut Michel !",
+				"position": "middle_center"
+			}
+		}]
+	}
+}
