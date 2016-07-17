@@ -9,7 +9,7 @@
 		}, {
 			"name": "compliments",
 			"options": {
-				"position": "top_left"
+				"position": "lower_third"
 			}
 		}]
 	}

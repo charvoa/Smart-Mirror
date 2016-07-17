@@ -52,7 +52,7 @@ var Module = function () {
       var path = __dirname + '/../modules/' + name + '/' + name;
       var Module = require(path);
       var m = new Module();
-      m.options = options;
+      Object.assign(m.options, options);
       return m;
     }
   }]);

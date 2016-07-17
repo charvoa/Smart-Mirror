@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Module2 = require("../Module");
+var _Module2 = require('../Module');
 
 var _Module3 = _interopRequireDefault(_Module2);
 
@@ -24,19 +24,53 @@ var compliments = function (_Module) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(compliments).call(this));
 
     _this.name = "compliments";
+    _this.options = {
+      updateInterval: 3000,
+      morning: ['Bonjour !', 'Bonne journée !', 'J\'espère que tu as bien dormi !'],
+      afternoon: ['Bon après-midi !', 'Bientôt la fin de journée !', 'Comment se déroule votre journée ?']
+    };
     return _this;
   }
 
   _createClass(compliments, [{
-    key: "generateDisplay",
+    key: 'start',
+    value: function start(mc) {
+      var self = this;
+      setInterval(function () {
+        console.log("update DOM");
+        mc.updateDom(self);
+      }, this.options.updateInterval);
+    }
+  }, {
+    key: 'getComplimentsForHour',
+    value: function getComplimentsForHour(hour) {
+      if (hour >= 3 && hour <= 12) {
+        return this.options.morning;
+      } else {
+        return this.options.afternoon;
+      }
+    }
+  }, {
+    key: 'randomCompliment',
+    value: function randomCompliment() {
+      var complimentsArray = this.getComplimentsForHour(moment().hour());
+      var compliment = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+      return compliment;
+    }
+  }, {
+    key: 'generateDisplay',
     value: function generateDisplay() {
-      console.log(moment().hour());
+      var complimentText = this.randomCompliment();
+
+      var compliment = document.createTextNode(complimentText);
       var wrapper = document.createElement("div");
-      wrapper.innerHTML = this.options.text;
+      wrapper.className = "thin xlarge bright";
+      wrapper.appendChild(compliment);
+
       return wrapper;
     }
   }, {
-    key: "getScripts",
+    key: 'getScripts',
     value: function getScripts() {
       return ['moment.js'];
     }
