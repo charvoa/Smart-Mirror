@@ -6,7 +6,7 @@ class Module {
     this.name = "Module";
   }
   //Call when the module is started.
-  start(){
+  start(mc){
     console.log("STARTING MODULE");
   }
 

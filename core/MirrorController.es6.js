@@ -22,6 +22,14 @@ class MirrorController {
     }
   }
 
+  insertFiles(module){
+    var self = this;
+    self.scripts = [];
+    var loader = new Loader();
+    loader.loadScripts();
+    //console.log(module.getScripts());
+  }
+
   displayObjects(modulesJSON){
     var modules = []
     var self = this;
@@ -31,9 +39,10 @@ class MirrorController {
     });
     var i = 0;
     modules.forEach(function (module) {
+      self.insertFiles(module);
       var wrapper = self.selectDiv(module.options.position);
       var dom = document.createElement("div");
-			dom.id = module.name + i; // NEED to Modify to generate ID
+			dom.id = module.name + i;
       module.identifier = dom.id
 			dom.className = module.name;
       wrapper.appendChild(dom);
@@ -42,10 +51,12 @@ class MirrorController {
 			dom.appendChild(moduleContent);
       self.updateDom(module);
       i++;
+      module.start(self);
     });
   }
 
   updateDom(module){
+    console.log("updateDom");
     var newContent = module.generateDisplay();
     this.updateModuleContent(module,newContent);
   }

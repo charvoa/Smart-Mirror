@@ -7,10 +7,9 @@
 				"position": "middle_center"
 			}
 		}, {
-			"name": "simpleText",
+			"name": "compliments",
 			"options": {
-				"text": "Salut Michel !",
-				"position": "middle_center"
+				"position": "top_left"
 			}
 		}]
 	}

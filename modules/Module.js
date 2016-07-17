@@ -18,7 +18,7 @@ var Module = function () {
 
   _createClass(Module, [{
     key: "start",
-    value: function start() {
+    value: function start(mc) {
       console.log("STARTING MODULE");
     }
 
