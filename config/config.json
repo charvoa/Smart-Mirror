@@ -6,7 +6,6 @@
 				"text": "Salut Nicolas !",
 				"position": "middle_center"
 			}
-<<<<<<< HEAD
 			}, {
 				"name": "weather",
 				"options": {
@@ -18,7 +17,10 @@
 					"position": "top_left"
 				}
 			}, {
-				"name": "calendar"
+				"name": "calendar",
+				"options": {
+					"position": "top_right"
+				}
 			}
 			,{
 				"name": "compliments",
@@ -26,22 +28,5 @@
 					"position": "lower_third"
 				}
 				}]
-=======
-		}, {
-			"name": "weather",
-			"options": {
-				"location": "Nice, FR",
-				"locationID": "2990440",
-				"units": "metric",
-				"lang": "fr",
-				"appID": "1f4ba1f8c4f581bc83982c53d9deca53",
-				"position": "top_left"
-		}
-	}
-		,{
-			"name": "compliments",
-			"options": {
-				"position": "lower_third"
->>>>>>> 3ec00142800b2b05ebfe0250a610672dcfe6f9b2
 			}
 		}
