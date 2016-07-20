@@ -28,6 +28,11 @@ class Module {
     return [];
   }
 
+  //Method to override if you want to add custom CSS.
+  getCSS(){
+    return [];
+  }
+  
   static createFromName(name,options){
     var path = __dirname + '/../modules/' + name + '/' + name;
     var Module = require(path);

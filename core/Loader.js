@@ -6,6 +6,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 // Made by Antoine Garcia in 2016
 var path = require('path');
+var Promise = require('bluebird');
 
 var Loader = function () {
   function Loader() {
@@ -18,11 +19,25 @@ var Loader = function () {
     key: 'loadScripts',
     value: function loadScripts(module, callback) {
       var self = this;
-      if (module.getScripts() == 0) {
+      if (module.getScripts().length == 0) {
         callback();
       } else {
         module.getScripts().forEach(function (script) {
           self.loadFile(script, module.name, function () {
+            callback();
+          });
+        });
+      }
+    }
+  }, {
+    key: 'loadCSS',
+    value: function loadCSS(module, callback) {
+      var self = this;
+      if (module.getCSS().length == 0) {
+        callback();
+      } else {
+        module.getCSS().forEach(function (style) {
+          self.loadFile(style, module.name, function () {
             callback();
           });
         });
@@ -46,7 +61,14 @@ var Loader = function () {
           break;
 
         case '.css':
-          //Not yet implemented
+          var style = document.createElement('link');
+          style.rel = 'stylesheet';
+          style.type = 'text/css';
+          style.href = file;
+          stylesheet.onload = function () {
+            callback();
+          };
+          document.getElementsByTagName('head')[0].appendChild(style);
           break;
       }
     }

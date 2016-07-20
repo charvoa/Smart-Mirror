@@ -4,8 +4,8 @@
   "description": "My Magic Mirror",
   "main": "app/index.js",
   "scripts": {
-   "start": "electron ."
- },
+    "start": "electron ."
+  },
   "author": "Antoine Garcia",
   "license": "MIT",
   "devDependencies": {
@@ -15,5 +15,8 @@
     "gulp-babel": "^6.1.2",
     "gulp-rename": "^1.2.2",
     "gulp-run": "^1.7.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1"
   }
 }

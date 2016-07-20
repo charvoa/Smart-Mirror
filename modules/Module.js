@@ -46,6 +46,14 @@ var Module = function () {
     value: function getScripts() {
       return [];
     }
+
+    //Method to override if you want to add custom CSS.
+
+  }, {
+    key: "getCSS",
+    value: function getCSS() {
+      return [];
+    }
   }], [{
     key: "createFromName",
     value: function createFromName(name, options) {

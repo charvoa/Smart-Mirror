@@ -51,19 +51,21 @@ var MirrorController = function () {
       });
       var i = 0;
       modules.forEach(function (module) {
-        self.loader.loadScripts(module, function () {
-          var wrapper = self.selectDiv(module.options.position);
-          var dom = document.createElement("div");
-          dom.id = module.name + i;
-          module.identifier = dom.id;
-          dom.className = module.name;
-          wrapper.appendChild(dom);
-          var moduleContent = document.createElement("div");
-          moduleContent.className = "module-content";
-          dom.appendChild(moduleContent);
-          self.updateDom(module);
-          i++;
-          module.start(self);
+        self.loader.loadCSS(module, function () {
+          self.loader.loadScripts(module, function () {
+            var wrapper = self.selectDiv(module.options.position);
+            var dom = document.createElement("div");
+            dom.id = module.name + i;
+            module.identifier = dom.id;
+            dom.className = module.name;
+            wrapper.appendChild(dom);
+            var moduleContent = document.createElement("div");
+            moduleContent.className = "module-content";
+            dom.appendChild(moduleContent);
+            self.updateDom(module);
+            i++;
+            module.start(self);
+          });
         });
       });
     }
