@@ -166,7 +166,7 @@ class weather extends Module{
     }
 
     getCss() {
-        return ['weather.css'];
+        return ['weather.css', './weather-icons-master/css/weather-icons.css'];
     }
 }
 module.exports = weather;

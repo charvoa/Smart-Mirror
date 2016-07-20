@@ -192,7 +192,7 @@ var weather = function (_Module) {
     }, {
         key: "getCss",
         value: function getCss() {
-            return ['weather.css'];
+            return ['weather.css', './weather-icons-master/css/weather-icons.css'];
         }
     }]);
 
