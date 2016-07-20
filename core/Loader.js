@@ -22,9 +22,14 @@ var Loader = function () {
       if (module.getScripts().length == 0) {
         callback();
       } else {
+        var count = module.getScripts().length;
+        var check = 0;
         module.getScripts().forEach(function (script) {
           self.loadFile(script, module.name, function () {
-            callback();
+            check++;
+            if (check === count) {
+              callback();
+            }
           });
         });
       }
@@ -36,9 +41,14 @@ var Loader = function () {
       if (module.getCSS().length == 0) {
         callback();
       } else {
+        var count = module.getCSS().length;
+        var check = 0;
         module.getCSS().forEach(function (style) {
           self.loadFile(style, module.name, function () {
-            callback();
+            check++;
+            if (check == count) {
+              callback();
+            }
           });
         });
       }
