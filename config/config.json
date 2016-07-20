@@ -3,7 +3,7 @@
 		"modules": [{
 			"name": "simpleText",
 			"options": {
-				"text": "Salut Antoine !",
+				"text": "Salut Nicolas !",
 				"position": "middle_center"
 			}
 		}, {
