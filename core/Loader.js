@@ -46,7 +46,12 @@ var Loader = function () {
   }, {
     key: 'loadFile',
     value: function loadFile(filename, name, callback) {
-      var file = __dirname + '/modules/' + name + '/' + filename;
+      var file = '';
+      if (filename.indexOf('./') === 0) {
+        file = __dirname + '/modules/' + name + '/' + filename;
+      } else {
+        var file = __dirname + '/modules/' + name + '/' + filename;
+      }
       var ext = path.extname(filename);
       switch (ext) {
         case '.js':
@@ -65,7 +70,7 @@ var Loader = function () {
           style.rel = 'stylesheet';
           style.type = 'text/css';
           style.href = file;
-          stylesheet.onload = function () {
+          style.onload = function () {
             callback();
           };
           document.getElementsByTagName('head')[0].appendChild(style);
