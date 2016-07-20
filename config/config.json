@@ -3,14 +3,30 @@
 		"modules": [{
 			"name": "simpleText",
 			"options": {
-				"text": "Salut Antoine !",
+				"text": "Salut Nicolas !",
 				"position": "middle_center"
 			}
-		}, {
-			"name": "compliments",
-			"options": {
-				"position": "lower_third"
+			}, {
+				"name": "weather",
+				"options": {
+					"location": "Nice, FR",
+					"locationID": "2990440",
+					"units": "metric",
+					"lang": "fr",
+					"appID": "1f4ba1f8c4f581bc83982c53d9deca53",
+					"position": "top_left"
+				}
+			}, {
+				"name": "calendar",
+				"options": {
+					"position": "top_right"
+				}
 			}
-		}]
-	}
-}
+			,{
+				"name": "compliments",
+				"options": {
+					"position": "lower_third"
+				}
+				}]
+			}
+		}

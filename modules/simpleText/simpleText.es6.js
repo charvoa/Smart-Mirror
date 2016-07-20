@@ -5,6 +5,9 @@ class simpleText extends Module{
   constructor(){
     super()
     this.name = "simpleText";
+    this.options = {
+        text: ""
+    };
   }
   generateDisplay(){
     var wrapper = document.createElement("div");
