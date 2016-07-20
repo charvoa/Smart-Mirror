@@ -24,6 +24,9 @@ var simpleText = function (_Module) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(simpleText).call(this));
 
     _this.name = "simpleText";
+    _this.options = {
+      text: ""
+    };
     return _this;
   }
 
