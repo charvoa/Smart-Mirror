@@ -63,7 +63,6 @@ class weather extends Module{
     generateDisplay(){
         var wrapper = document.createElement("div");
 
-        console.log(this.options.appID);
         if (this.options.appID === "") {
             wrapper.innerHTML = "Please set the correct openweather <i>appid</i> in the config for module: " + this.name + ".";
             wrapper.className = "dimmed light small";
@@ -165,8 +164,8 @@ class weather extends Module{
         return ['moment.js'];
     }
 
-    getCss() {
-        return ['weather.css', './weather-icons-master/css/weather-icons.css'];
+    getCSS() {
+        return ['weather.css','./weather-icons-master/css/weather-icons.css'];
     }
 }
 module.exports = weather;
