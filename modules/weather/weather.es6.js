@@ -62,11 +62,7 @@ class weather extends Module{
 
     generateDisplay(){
         var wrapper = document.createElement("div");
-
-<<<<<<< HEAD
-=======
-        console.log(this.options.appID);
->>>>>>> 3ec00142800b2b05ebfe0250a610672dcfe6f9b2
+        
         if (this.options.appID === "") {
             wrapper.innerHTML = "Please set the correct openweather <i>appid</i> in the config for module: " + this.name + ".";
             wrapper.className = "dimmed light small";
@@ -168,13 +164,8 @@ class weather extends Module{
         return ['moment.js'];
     }
 
-<<<<<<< HEAD
     getCSS() {
         return ['weather.css','./weather-icons-master/css/weather-icons.css'];
-=======
-    getCss() {
-        return ['weather.css'];
->>>>>>> 3ec00142800b2b05ebfe0250a610672dcfe6f9b2
     }
 }
 module.exports = weather;

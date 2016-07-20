@@ -86,10 +86,6 @@ var weather = function (_Module) {
         value: function generateDisplay() {
             var wrapper = document.createElement("div");
 
-<<<<<<< HEAD
-=======
-            console.log(this.options.appID);
->>>>>>> 3ec00142800b2b05ebfe0250a610672dcfe6f9b2
             if (this.options.appID === "") {
                 wrapper.innerHTML = "Please set the correct openweather <i>appid</i> in the config for module: " + this.name + ".";
                 wrapper.className = "dimmed light small";
@@ -193,15 +189,9 @@ var weather = function (_Module) {
             return ['moment.js'];
         }
     }, {
-<<<<<<< HEAD
         key: "getCSS",
         value: function getCSS() {
             return ['weather.css', './weather-icons-master/css/weather-icons.css'];
-=======
-        key: "getCss",
-        value: function getCss() {
-            return ['weather.css'];
->>>>>>> 3ec00142800b2b05ebfe0250a610672dcfe6f9b2
         }
     }]);
 
