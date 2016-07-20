@@ -68,7 +68,6 @@ var MirrorController = function () {
         });
       });
     }
-
     //Only call this method from your module if you want to update the dom !
 
   }, {
