@@ -7,6 +7,9 @@ class calendar extends Module{
         super()
         this.name = "calendar";
         this.dateOfToday = "";
+        this.options = {
+          lang:'fr'
+        };
     }
 
     start(mc) {
@@ -33,7 +36,7 @@ class calendar extends Module{
 
         var date = document.createElement("span");
         date.className = "bright";
-        date.innerHTML = " " + this.dateOfToday;
+        date.innerHTML = " " + this.getDate();
         large.appendChild(date);
 
         wrapper.appendChild(small);
@@ -42,19 +45,8 @@ class calendar extends Module{
     }
 
     getDate() {
-        var now = new Date();
-        var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-
-        var day = days[ now.getDay() ];
-        day = day.substring(0, 3);
-        day += ".";
-        var month = months[ now.getMonth() ];
-        month = month.substring(0, 3);
-        month += ".";
-
-        this.dateOfToday = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear();
-        this.mc.updateDom(this);
+        moment.locale(this.options.lang);
+        return moment().format('L');
     }
 
     getScripts() {

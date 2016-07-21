@@ -24,6 +24,9 @@ var calendar = function (_Module) {
 
         _this.name = "calendar";
         _this.dateOfToday = "";
+        _this.options = {
+            lang: 'fr'
+        };
         return _this;
     }
 
@@ -54,7 +57,7 @@ var calendar = function (_Module) {
 
             var date = document.createElement("span");
             date.className = "bright";
-            date.innerHTML = " " + this.dateOfToday;
+            date.innerHTML = " " + this.getDate();
             large.appendChild(date);
 
             wrapper.appendChild(small);
@@ -64,19 +67,8 @@ var calendar = function (_Module) {
     }, {
         key: "getDate",
         value: function getDate() {
-            var now = new Date();
-            var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-            var day = days[now.getDay()];
-            day = day.substring(0, 3);
-            day += ".";
-            var month = months[now.getMonth()];
-            month = month.substring(0, 3);
-            month += ".";
-
-            this.dateOfToday = now.getDate() + "/" + now.getMonth() + "/" + now.getFullYear();
-            this.mc.updateDom(this);
+            moment.locale(this.options.lang);
+            return moment().format('L');
         }
     }, {
         key: "getScripts",
