@@ -28,7 +28,7 @@ class compliments extends Module{
   }
 
   getComplimentsForHour(hour){
-    if (hour >= 3 && hour <= 12){
+    if (hour >= 3 && hour < 12){
       return this.options.morning;
     }
     else{
