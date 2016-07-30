@@ -44,7 +44,7 @@ var compliments = function (_Module) {
   }, {
     key: 'getComplimentsForHour',
     value: function getComplimentsForHour(hour) {
-      if (hour >= 3 && hour <= 12) {
+      if (hour >= 3 && hour < 12) {
         return this.options.morning;
       } else {
         return this.options.afternoon;
